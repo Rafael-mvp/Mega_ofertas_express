@@ -1,0 +1,124 @@
+.produto-lista {
+  padding: 1.5rem 0;
+}
+
+.section-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 1.25rem;
+  border-left: 4px solid var(--orange);
+  padding-left: 0.75rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.skeleton-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.skeleton-card {
+  background: var(--surface);
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.skeleton-img {
+  aspect-ratio: 1 / 1;
+  background: linear-gradient(90deg, #ececec 25%, #e0e0e0 50%, #ececec 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+}
+
+.skeleton-body {
+  padding: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.skeleton-line {
+  height: 12px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #ececec 25%, #e0e0e0 50%, #ececec 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+  width: 100%;
+}
+
+.skeleton-line.short { width: 45%; }
+.skeleton-line.medium { width: 70%; }
+
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.erro-api {
+  background: var(--surface);
+  border: 1px solid #ffd0d0;
+  border-radius: 10px;
+  padding: 2rem;
+  text-align: center;
+  color: var(--text-sec);
+}
+
+.erro-api p {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--red);
+  margin-bottom: 0.4rem;
+}
+
+.erro-api code {
+  background: #f5f5f5;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.82rem;
+  color: var(--blue);
+}
+
+@media (max-width: 1024px) {
+  .grid, .skeleton-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.sem-resultados {
+  text-align: center;
+  padding: 3.5rem 2rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.sem-resultados-icon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.sem-resultados p {
+  font-size: 1rem;
+  color: var(--text-sec);
+}
+
+.sem-resultados strong {
+  color: var(--text);
+}
+
+@media (max-width: 768px) {
+  .grid, .skeleton-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.9rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .grid, .skeleton-grid { grid-template-columns: 1fr; }
+}

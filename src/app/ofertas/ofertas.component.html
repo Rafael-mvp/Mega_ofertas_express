@@ -1,0 +1,44 @@
+<div class="ofertas-page">
+  <div class="ofertas-hero">
+    <h1 class="ofertas-titulo">Todas as Ofertas</h1>
+    <p class="ofertas-sub">Os melhores preços em eletrônicos, com descontos imperdíveis.</p>
+  </div>
+
+  <app-categoria-menu (categoriaChange)="onCategoriaMudou($event)" />
+
+  <section class="ofertas-secao">
+    <h2 class="section-title">{{ tituloSecao }}</h2>
+
+    @if (carregando) {
+      <div class="skeleton-grid">
+        @for (i of [1,2,3,4,5,6,7,8]; track i) {
+          <div class="skeleton-card">
+            <div class="skeleton-img"></div>
+            <div class="skeleton-body">
+              <div class="skeleton-line short"></div>
+              <div class="skeleton-line"></div>
+              <div class="skeleton-line medium"></div>
+              <div class="skeleton-line short"></div>
+            </div>
+          </div>
+        }
+      </div>
+    } @else if (erro) {
+      <div class="erro-api">
+        <p>Não foi possível carregar as ofertas.</p>
+        <small>Verifique se o JSON Server está rodando em <code>http://localhost:3000</code>.</small>
+      </div>
+    } @else if (produtosFiltrados.length === 0) {
+      <div class="sem-resultados">
+        <span class="sem-resultados-icon">🔍</span>
+        <p>Nenhuma oferta encontrada em <strong>{{ categoria }}</strong>.</p>
+      </div>
+    } @else {
+      <div class="grid">
+        @for (produto of produtosFiltrados; track produto.id) {
+          <app-produto-card [produto]="produto" />
+        }
+      </div>
+    }
+  </section>
+</div>

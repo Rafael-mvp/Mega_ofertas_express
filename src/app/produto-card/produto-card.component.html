@@ -1,0 +1,37 @@
+<div class="card">
+  @if (produto.destaque) {
+    <span class="badge-destaque">DESTAQUE</span>
+  }
+  @if (produto.emPromocao) {
+    <span class="badge-desconto">-{{ produto.desconto }}%</span>
+  }
+
+  <div class="card-img-wrap">
+    <img [src]="produto.imagem" [alt]="produto.nome" class="card-img" loading="lazy" />
+  </div>
+
+  <div class="card-body">
+    <span class="card-categoria">{{ produto.categoria }}</span>
+    <h3 class="card-title">{{ produto.nome }}</h3>
+
+    @if (produto.emPromocao) {
+      <p class="preco-original">
+        De: <s>{{ produto.precoOriginal | currency:'BRL':'R$ ':'1.2-2' }}</s>
+      </p>
+    }
+    <p class="preco-promocional">
+      Por <strong>{{ produto.precoPromocional | currency:'BRL':'R$ ':'1.2-2' }}</strong>
+    </p>
+    <p class="preco-pix">
+      <span class="pix-label">PIX</span>
+      <strong>{{ produto.precoPix | currency:'BRL':'R$ ':'1.2-2' }}</strong>
+    </p>
+    <p class="parcelas">
+      ou {{ produto.parcelas }}x de
+      <strong>{{ (produto.precoPromocional / produto.parcelas) | currency:'BRL':'R$ ':'1.2-2' }}</strong>
+      sem juros
+    </p>
+
+    <button class="btn-comprar" (click)="comprar()">Comprar</button>
+  </div>
+</div>

@@ -1,0 +1,6 @@
+<div class="home">
+  <app-banner />
+  <app-categoria-menu (categoriaChange)="onCategoriaMudou($event)" />
+  <app-produto-lista [categoria]="categoriaSelecionada" />
+  <app-avaliacao />
+</div>

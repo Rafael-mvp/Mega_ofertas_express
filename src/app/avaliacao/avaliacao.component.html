@@ -1,0 +1,22 @@
+<section class="avaliacao">
+  <h2 class="section-title">O que nossos clientes dizem</h2>
+  <div class="avaliacao-grid">
+    @for (av of avaliacoes; track av.nome) {
+      <div class="avaliacao-card">
+        <div class="avaliacao-header">
+          <div class="avatar">{{ av.nome[0] }}</div>
+          <div class="avaliacao-info">
+            <p class="avaliacao-nome">{{ av.nome }}</p>
+            <span class="avaliacao-data">{{ av.data }}</span>
+          </div>
+        </div>
+        <div class="estrelas">
+          @for (i of estrelas(av.nota); track i) {
+            <span [class.cheia]="i < av.nota">{{ i < av.nota ? '★' : '☆' }}</span>
+          }
+        </div>
+        <p class="avaliacao-comentario">"{{ av.comentario }}"</p>
+      </div>
+    }
+  </div>
+</section>

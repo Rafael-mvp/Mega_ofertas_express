@@ -1,0 +1,155 @@
+.card {
+  background: var(--surface);
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 1px solid var(--border);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.badge-destaque {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: var(--orange);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  z-index: 1;
+}
+
+.badge-desconto {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: var(--red);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  z-index: 1;
+}
+
+.card-img-wrap {
+  background: #f5f5f5;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.card:hover .card-img {
+  transform: scale(1.05);
+}
+
+.card-body {
+  padding: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  flex: 1;
+}
+
+.card-categoria {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--blue);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.card-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 0.2rem;
+}
+
+.preco-original {
+  font-size: 0.75rem;
+  color: var(--text-sec);
+}
+
+.preco-original s {
+  color: #aaa;
+}
+
+.preco-promocional {
+  font-size: 0.82rem;
+  color: var(--text-sec);
+}
+
+.preco-promocional strong {
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.preco-pix {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.1rem;
+}
+
+.pix-label {
+  background: #00457c;
+  color: #32bcad;
+  font-size: 0.6rem;
+  font-weight: 800;
+  padding: 0.15rem 0.35rem;
+  border-radius: 3px;
+  letter-spacing: 0.03em;
+}
+
+.preco-pix strong {
+  color: #16a34a;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.parcelas {
+  font-size: 0.74rem;
+  color: var(--text-sec);
+}
+
+.parcelas strong {
+  color: var(--text);
+}
+
+.btn-comprar {
+  margin-top: 0.6rem;
+  padding: 0.62rem 1rem;
+  background: var(--orange);
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.btn-comprar:hover {
+  background: var(--orange-hover);
+  transform: translateY(-1px);
+}

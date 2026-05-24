@@ -1,0 +1,127 @@
+.cadastro-page {
+  min-height: calc(100vh - 120px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  background: var(--bg);
+}
+
+.cadastro-card {
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 2.5rem 2rem;
+  width: 100%;
+  max-width: 440px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
+}
+
+.cadastro-titulo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.4rem;
+}
+
+.cadastro-sub {
+  font-size: 0.9rem;
+  color: var(--text-sec);
+  margin-bottom: 1.75rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.campo label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.campo input {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  padding: 0.65rem 0.85rem;
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.campo input:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(10, 61, 107, 0.1);
+}
+
+.campo input.invalido {
+  border-color: var(--red);
+}
+
+.campo input::placeholder {
+  color: #bbb;
+}
+
+.erro {
+  font-size: 0.75rem;
+  color: var(--red);
+}
+
+.btn-cadastrar {
+  background: var(--orange);
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  padding: 0.8rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-top: 0.5rem;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.btn-cadastrar:hover {
+  background: var(--orange-hover);
+  transform: translateY(-1px);
+}
+
+.sucesso {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 0;
+}
+
+.sucesso-icon {
+  width: 60px;
+  height: 60px;
+  background: #16a34a;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sucesso h2 {
+  font-size: 1.4rem;
+  color: var(--text);
+}
+
+.sucesso p {
+  font-size: 0.9rem;
+  color: var(--text-sec);
+}

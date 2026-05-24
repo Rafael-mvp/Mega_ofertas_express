@@ -1,0 +1,53 @@
+@if (itensPedido.length > 0) {
+  <div class="confirmacao-page">
+    <div class="confirmacao-card">
+
+      <div class="sucesso-header">
+        <div class="sucesso-circle">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+        <h1 class="sucesso-titulo">Pedido realizado com sucesso!</h1>
+        <p class="sucesso-sub">Obrigado pela sua compra na MegaOfertas.</p>
+        <span class="numero-pedido">Pedido #{{ numeroPedido }}</span>
+      </div>
+
+      <!-- Resumo do que foi comprado -->
+      <div class="pedido-resumo">
+        <p class="resumo-label">O que você comprou</p>
+
+        @for (item of itensPedido; track item.produto.id) {
+          <div class="resumo-item">
+            <img [src]="item.produto.imagem" [alt]="item.produto.nome" class="resumo-item-img" />
+            <span class="item-desc">{{ item.produto.nome }}</span>
+            <span class="item-qty">x{{ item.quantidade }}</span>
+            <span class="item-preco">
+              {{ (item.produto.precoPromocional * item.quantidade) | currency:'BRL':'R$ ':'1.2-2' }}
+            </span>
+          </div>
+        }
+
+        <hr class="resumo-divider" />
+
+        <div class="resumo-linha">
+          <span>Frete</span>
+          <span class="frete-gratis">GRÁTIS</span>
+        </div>
+        <div class="resumo-total">
+          <span>Total pago</span>
+          <strong>{{ totalPedido | currency:'BRL':'R$ ':'1.2-2' }}</strong>
+        </div>
+      </div>
+
+      <div class="confirmacao-info">
+        <p>📧 Um e-mail de confirmação será enviado em breve.</p>
+        <p>🚚 Prazo de entrega estimado: <strong>3 a 7 dias úteis</strong>.</p>
+      </div>
+
+      <button class="btn-continuar" (click)="continuarComprando()">
+        Continuar Comprando
+      </button>
+    </div>
+  </div>
+}

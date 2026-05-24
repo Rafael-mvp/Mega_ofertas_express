@@ -1,0 +1,12 @@
+<nav class="categoria-menu" aria-label="Categorias">
+  @for (cat of categorias; track cat.nome) {
+    <button
+      class="categoria-btn"
+      [class.ativa]="ativa === cat.nome"
+      (click)="selecionar(cat.nome)"
+    >
+      <span class="cat-icone">{{ cat.icone }}</span>
+      <span class="cat-nome">{{ cat.nome }}</span>
+    </button>
+  }
+</nav>

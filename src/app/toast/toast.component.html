@@ -1,0 +1,6 @@
+@if (toastService.toast$ | async; as toast) {
+  <div class="toast" [class.erro]="toast.tipo === 'erro'">
+    <span class="toast-icon">{{ toast.tipo === 'sucesso' ? '✓' : '✕' }}</span>
+    {{ toast.mensagem }}
+  </div>
+}
