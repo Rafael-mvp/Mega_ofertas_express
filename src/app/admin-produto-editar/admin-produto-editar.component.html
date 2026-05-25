@@ -1,0 +1,89 @@
+<div class="editar-container">
+  <div *ngIf="produtoNaoEncontrado" class="erro-card">
+    <p>Produto não encontrado.</p>
+    <button class="btn-voltar" (click)="cancelar()">Voltar para a lista</button>
+  </div>
+
+  <div *ngIf="!produtoNaoEncontrado" class="form-card">
+    <header class="form-header">
+      <h1 class="form-title">Editar Produto</h1>
+      <span class="form-subtitle">ID #{{ produto?.id }}</span>
+    </header>
+
+    <div *ngIf="salvo" class="alerta-sucesso">Produto atualizado com sucesso! Redirecionando...</div>
+
+    <form [formGroup]="form" (ngSubmit)="salvar()" novalidate>
+      <div class="campo">
+        <label for="nome">Nome do Produto</label>
+        <input
+          id="nome"
+          type="text"
+          formControlName="nome"
+          placeholder="Ex: Smart TV 4K 50 polegadas"
+          [class.invalido]="ctrl('nome').invalid && ctrl('nome').touched"
+        />
+        <span class="erro-msg" *ngIf="ctrl('nome').invalid && ctrl('nome').touched">
+          Nome é obrigatório (mínimo 3 caracteres).
+        </span>
+      </div>
+
+      <div class="campos-linha">
+        <div class="campo">
+          <label for="preco">Preço (R$)</label>
+          <input
+            id="preco"
+            type="number"
+            step="0.01"
+            formControlName="preco"
+            placeholder="0,00"
+            [class.invalido]="ctrl('preco').invalid && ctrl('preco').touched"
+          />
+          <span class="erro-msg" *ngIf="ctrl('preco').invalid && ctrl('preco').touched">
+            Preço deve ser maior que zero.
+          </span>
+        </div>
+
+        <div class="campo">
+          <label for="estoque">Estoque</label>
+          <input
+            id="estoque"
+            type="number"
+            formControlName="estoque"
+            placeholder="0"
+            [class.invalido]="ctrl('estoque').invalid && ctrl('estoque').touched"
+          />
+          <span class="erro-msg" *ngIf="ctrl('estoque').invalid && ctrl('estoque').touched">
+            Estoque não pode ser negativo.
+          </span>
+        </div>
+      </div>
+
+      <div class="campo">
+        <label for="categoria">Categoria</label>
+        <select
+          id="categoria"
+          formControlName="categoria"
+          [class.invalido]="ctrl('categoria').invalid && ctrl('categoria').touched"
+        >
+          <option value="" disabled>Selecione uma categoria</option>
+          <option>Eletrônicos</option>
+          <option>Informática</option>
+          <option>Smartphones</option>
+          <option>Áudio</option>
+          <option>Eletrodomésticos</option>
+          <option>Casa e Jardim</option>
+          <option>Moda</option>
+          <option>Esportes</option>
+        </select>
+        <span class="erro-msg" *ngIf="ctrl('categoria').invalid && ctrl('categoria').touched">
+          Selecione uma categoria.
+        </span>
+      </div>
+
+      <div class="form-acoes">
+        <button type="button" class="btn-cancelar" (click)="cancelar()">Cancelar</button>
+        <button type="submit" class="btn-salvar">Salvar Alterações</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { CarrinhoService } from './carrinho.service';
 import { ToastComponent } from './toast/toast.component';
+import { AuthService, Cliente } from './auth.service';
 
 @Component({
   selector: 'app-root',
@@ -14,17 +15,27 @@ import { ToastComponent } from './toast/toast.component';
 export class AppComponent implements OnInit, OnDestroy {
   searchQuery = '';
   cartCount = 0;
-  private sub!: Subscription;
+  clienteLogado: Cliente | null = null;
 
-  constructor(private carrinho: CarrinhoService) {}
+  private subs = new Subscription();
+
+  constructor(
+    private carrinho: CarrinhoService,
+    public auth: AuthService
+  ) {}
 
   ngOnInit() {
-    this.sub = this.carrinho.itens$.subscribe(itens => {
-      this.cartCount = itens.reduce((acc, i) => acc + i.quantidade, 0);
-    });
+    this.subs.add(
+      this.carrinho.itens$.subscribe(itens => {
+        this.cartCount = itens.reduce((acc, i) => acc + i.quantidade, 0);
+      })
+    );
+    this.subs.add(
+      this.auth.cliente$.subscribe(c => this.clienteLogado = c)
+    );
   }
 
   ngOnDestroy() {
-    this.sub.unsubscribe();
+    this.subs.unsubscribe();
   }
 }

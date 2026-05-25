@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+.editar-container {
+  font-family: 'Inter', sans-serif;
+  background: #1F2022;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 2.5rem 1.5rem;
+  color: #FFFFFF;
+}
+
+.form-card,
+.erro-card {
+  background: #2A2C2E;
+  border-radius: 12px;
+  border: 1px solid #3a3c3e;
+  padding: 2rem;
+  width: 100%;
+  max-width: 540px;
+}
+
+.form-header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 1.75rem;
+  flex-wrap: wrap;
+}
+
+.form-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0;
+  color: #FFFFFF;
+}
+
+.form-subtitle {
+  font-size: 0.85rem;
+  color: #AAAAAA;
+}
+
+.alerta-sucesso {
+  background: rgba(0, 166, 81, 0.15);
+  border: 1px solid #00A651;
+  color: #00A651;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.25rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
+}
+
+.campo label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #AAAAAA;
+}
+
+.campo input,
+.campo select {
+  font-family: 'Inter', sans-serif;
+  background: #1F2022;
+  border: 1px solid #3a3c3e;
+  border-radius: 8px;
+  color: #FFFFFF;
+  font-size: 0.95rem;
+  padding: 0.6rem 0.875rem;
+  transition: border-color 0.2s;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+.campo select option {
+  background: #2A2C2E;
+  color: #FFFFFF;
+}
+
+.campo input:focus,
+.campo select:focus {
+  border-color: #00A651;
+}
+
+.campo input.invalido,
+.campo select.invalido {
+  border-color: #ff6b6b;
+}
+
+.erro-msg {
+  font-size: 0.78rem;
+  color: #ff6b6b;
+}
+
+.campos-linha {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-acoes {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+  justify-content: flex-end;
+}
+
+.btn-cancelar,
+.btn-salvar,
+.btn-voltar {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.6rem 1.5rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.1s;
+}
+
+.btn-cancelar {
+  background: transparent;
+  border: 1px solid #3a3c3e;
+  color: #AAAAAA;
+}
+
+.btn-salvar {
+  background: #00A651;
+  color: #FFFFFF;
+}
+
+.btn-voltar {
+  background: #00A651;
+  color: #FFFFFF;
+  margin-top: 1rem;
+}
+
+.btn-cancelar:hover,
+.btn-salvar:hover,
+.btn-voltar:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+.erro-card {
+  text-align: center;
+  color: #AAAAAA;
+}
+
+@media (max-width: 480px) {
+  .campos-linha {
+    grid-template-columns: 1fr;
+  }
+
+  .form-card,
+  .erro-card {
+    padding: 1.5rem 1rem;
+  }
+
+  .form-acoes {
+    flex-direction: column-reverse;
+  }
+
+  .btn-cancelar,
+  .btn-salvar {
+    width: 100%;
+    text-align: center;
+  }
+}

@@ -69,6 +69,18 @@
   background: var(--orange-hover);
 }
 
+.admin-link {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #AAAAAA;
+  flex-shrink: 0;
+  transition: color 0.2s;
+}
+
+.admin-link:hover {
+  color: #FFFFFF;
+}
+
 .cart-btn {
   position: relative;
   color: #ffffff;
@@ -109,6 +121,70 @@ main {
   color: rgba(255, 255, 255, 0.65);
   font-size: 0.8rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.auth-links {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.auth-link {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #AAAAAA;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+
+.auth-link:hover {
+  color: #FFFFFF;
+}
+
+.auth-link-destaque {
+  background: var(--orange);
+  color: #FFFFFF;
+  padding: 0.35rem 0.75rem;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+.auth-link-destaque:hover {
+  background: var(--orange-hover);
+  color: #FFFFFF;
+}
+
+.auth-user {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-shrink: 0;
+}
+
+.user-nome {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #FFFFFF;
+  white-space: nowrap;
+}
+
+.btn-sair {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #AAAAAA;
+  background: transparent;
+  border: 1px solid #3a3c3e;
+  border-radius: 20px;
+  padding: 0.3rem 0.7rem;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+  white-space: nowrap;
+}
+
+.btn-sair:hover {
+  color: #FFFFFF;
+  border-color: #AAAAAA;
 }
 
 @media (max-width: 600px) {

@@ -1,4 +1,4 @@
-.cadastro-page {
+.login-page {
   min-height: calc(100vh - 120px);
   display: flex;
   align-items: center;
@@ -7,7 +7,7 @@
   background: var(--bg);
 }
 
-.cadastro-card {
+.login-card {
   background: var(--surface);
   border-radius: 12px;
   padding: 2.5rem 2rem;
@@ -17,14 +17,14 @@
   box-shadow: var(--shadow-md);
 }
 
-.cadastro-titulo {
+.login-titulo {
   font-size: 1.6rem;
   font-weight: 700;
   color: var(--text);
   margin-bottom: 0.4rem;
 }
 
-.cadastro-sub {
+.login-sub {
   font-size: 0.9rem;
   color: var(--text-sec);
   margin-bottom: 1.75rem;
@@ -78,54 +78,6 @@
   color: var(--red);
 }
 
-.btn-cadastrar {
-  background: var(--orange);
-  color: #fff;
-  border: none;
-  border-radius: 24px;
-  padding: 0.8rem;
-  font-size: 0.95rem;
-  font-weight: 700;
-  margin-top: 0.5rem;
-  transition: background 0.2s, transform 0.1s;
-}
-
-.btn-cadastrar:hover {
-  background: var(--orange-hover);
-  transform: translateY(-1px);
-}
-
-.sucesso {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 1rem 0;
-}
-
-.sucesso-icon {
-  width: 60px;
-  height: 60px;
-  background: #16a34a;
-  color: #fff;
-  border-radius: 50%;
-  font-size: 1.8rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.sucesso h2 {
-  font-size: 1.4rem;
-  color: var(--text);
-}
-
-.sucesso p {
-  font-size: 0.9rem;
-  color: var(--text-sec);
-}
-
 .alerta-erro {
   background: rgba(220, 38, 38, 0.1);
   border: 1px solid var(--red);
@@ -136,29 +88,42 @@
   margin-bottom: 1.25rem;
 }
 
-.alerta-erro a {
-  color: var(--red);
-  font-weight: 600;
+.btn-entrar {
+  background: var(--orange);
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  padding: 0.8rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-top: 0.5rem;
+  transition: background 0.2s, transform 0.1s;
+  cursor: pointer;
 }
 
-.link-login {
+.btn-entrar:hover:not(:disabled) {
+  background: var(--orange-hover);
+  transform: translateY(-1px);
+}
+
+.btn-entrar:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.link-cadastro {
   text-align: center;
   font-size: 0.85rem;
   color: var(--text-sec);
   margin-top: 1.5rem;
 }
 
-.link-login a {
+.link-cadastro a {
   color: var(--orange);
   font-weight: 600;
   text-decoration: none;
 }
 
-.link-login a:hover {
+.link-cadastro a:hover {
   text-decoration: underline;
-}
-
-.btn-cadastrar:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
 }

@@ -10,4 +10,7 @@ export interface Produto {
   destaque: boolean;
   emPromocao: boolean;
   imagem: string;
+  // campos adicionados para unificação com o admin
+  preco: number;
+  estoque: number;
 }

@@ -1,0 +1,51 @@
+<div class="login-page">
+  <div class="login-card">
+    <h2 class="login-titulo">Entrar na conta</h2>
+    <p class="login-sub">Bem-vindo de volta à MegaOfertas</p>
+
+    @if (erroLogin) {
+      <div class="alerta-erro">E-mail ou senha incorretos. Tente novamente.</div>
+    }
+
+    <form [formGroup]="form" (ngSubmit)="entrar()" class="form" novalidate>
+      <div class="campo">
+        <label for="email">E-mail</label>
+        <input
+          id="email"
+          type="email"
+          formControlName="email"
+          placeholder="seu@email.com"
+          [class.invalido]="email.invalid && email.touched"
+        />
+        @if (email.invalid && email.touched) {
+          <span class="erro">
+            @if (email.errors?.['required']) { E-mail é obrigatório. }
+            @else if (email.errors?.['email']) { Informe um e-mail válido. }
+          </span>
+        }
+      </div>
+
+      <div class="campo">
+        <label for="senha">Senha</label>
+        <input
+          id="senha"
+          type="password"
+          formControlName="senha"
+          placeholder="Sua senha"
+          [class.invalido]="senha.invalid && senha.touched"
+        />
+        @if (senha.invalid && senha.touched) {
+          <span class="erro">Senha é obrigatória.</span>
+        }
+      </div>
+
+      <button type="submit" class="btn-entrar" [disabled]="carregando">
+        {{ carregando ? 'Verificando...' : 'Entrar' }}
+      </button>
+    </form>
+
+    <p class="link-cadastro">
+      Não tem conta? <a routerLink="/cadastro">Criar conta</a>
+    </p>
+  </div>
+</div>

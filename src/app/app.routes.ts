@@ -6,6 +6,11 @@ export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'cadastro', component: CadastroComponent },
   {
+    path: 'login',
+    loadComponent: () =>
+      import('./login/login.component').then(m => m.LoginComponent)
+  },
+  {
     path: 'carrinho',
     loadComponent: () =>
       import('./carrinho/carrinho.component').then(m => m.CarrinhoComponent)
@@ -24,5 +29,15 @@ export const routes: Routes = [
     path: 'ofertas',
     loadComponent: () =>
       import('./ofertas/ofertas.component').then(m => m.OfertasComponent)
+  },
+  {
+    path: 'admin',
+    loadComponent: () =>
+      import('./admin-produto-lista/admin-produto-lista.component').then(m => m.AdminProdutoListaComponent)
+  },
+  {
+    path: 'admin/editar/:id',
+    loadComponent: () =>
+      import('./admin-produto-editar/admin-produto-editar.component').then(m => m.AdminProdutoEditarComponent)
   },
 ];

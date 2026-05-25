@@ -4,11 +4,18 @@
       <div class="sucesso">
         <span class="sucesso-icon">✓</span>
         <h2>Cadastro realizado!</h2>
-        <p>Bem-vindo à MegaOfertas. Aproveite as melhores ofertas!</p>
+        <p>Sua conta foi criada. Redirecionando para o login...</p>
       </div>
     } @else {
       <h2 class="cadastro-titulo">Criar conta</h2>
       <p class="cadastro-sub">Cadastre-se e aproveite todas as nossas ofertas</p>
+
+      @if (erroEmail) {
+        <div class="alerta-erro">Este e-mail já está cadastrado. <a routerLink="/login">Fazer login</a></div>
+      }
+      @if (erroServidor) {
+        <div class="alerta-erro">Erro ao conectar. Verifique se o servidor está rodando.</div>
+      }
 
       <form [formGroup]="form" (ngSubmit)="enviar()" class="form" novalidate>
         <div class="campo">
@@ -62,8 +69,30 @@
           }
         </div>
 
-        <button type="submit" class="btn-cadastrar">Criar conta</button>
+        <div class="campo">
+          <label for="confirmarSenha">Confirmar senha</label>
+          <input
+            id="confirmarSenha"
+            type="password"
+            formControlName="confirmarSenha"
+            placeholder="Repita a senha"
+            [class.invalido]="(confirmarSenha.invalid && confirmarSenha.touched) || !!senhasDivergem"
+          />
+          @if (confirmarSenha.errors?.['required'] && confirmarSenha.touched) {
+            <span class="erro">Confirmação é obrigatória.</span>
+          } @else if (senhasDivergem) {
+            <span class="erro">As senhas não coincidem.</span>
+          }
+        </div>
+
+        <button type="submit" class="btn-cadastrar" [disabled]="carregando">
+          {{ carregando ? 'Aguarde...' : 'Criar conta' }}
+        </button>
       </form>
+
+      <p class="link-login">
+        Já tem conta? <a routerLink="/login">Fazer login</a>
+      </p>
     }
   </div>
 </div>

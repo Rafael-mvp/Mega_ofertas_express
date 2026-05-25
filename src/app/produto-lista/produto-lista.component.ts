@@ -1,7 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { ProdutoCardComponent } from '../produto-card/produto-card.component';
 import { Produto } from '../produto.model';
+import { AdminProdutosService } from '../admin-produtos.service';
 
 @Component({
   selector: 'app-produto-lista',
@@ -9,26 +10,26 @@ import { Produto } from '../produto.model';
   templateUrl: './produto-lista.component.html',
   styleUrl: './produto-lista.component.css'
 })
-export class ProdutoListaComponent implements OnInit {
+export class ProdutoListaComponent implements OnInit, OnDestroy {
   @Input() categoria = 'Todos';
 
   produtos: Produto[] = [];
   carregando = true;
   erro = false;
 
-  constructor(private http: HttpClient) {}
+  private sub!: Subscription;
 
-  ngOnInit() {
-    this.http.get<Produto[]>('http://localhost:3000/produtos').subscribe({
-      next: (dados) => {
-        this.produtos = dados;
-        this.carregando = false;
-      },
-      error: () => {
-        this.erro = true;
-        this.carregando = false;
-      }
+  constructor(private service: AdminProdutosService) {}
+
+  ngOnInit(): void {
+    this.sub = this.service.produtos$.subscribe(produtos => {
+      this.produtos = produtos;
+      this.carregando = false;
     });
+  }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
   }
 
   get produtosFiltrados(): Produto[] {

@@ -1,0 +1,43 @@
+<div class="admin-container">
+  <header class="admin-header">
+    <h1 class="admin-title">Administração de Produtos</h1>
+    <span class="total-badge">{{ produtos.length }} produto(s)</span>
+  </header>
+
+  <div class="table-wrapper">
+    <table class="tabela-produtos">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nome</th>
+          <th>Categoria</th>
+          <th>Preço</th>
+          <th>Estoque</th>
+          <th class="col-acoes">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of produtos">
+          <td class="col-id">{{ p.id }}</td>
+          <td class="col-nome">{{ p.nome }}</td>
+          <td><span class="tag-categoria">{{ p.categoria }}</span></td>
+          <td class="col-preco">{{ p.preco | currency:'BRL':'symbol':'1.2-2' }}</td>
+          <td [class.estoque-baixo]="p.estoque < 10">{{ p.estoque }}</td>
+          <td class="col-acoes">
+            <button class="btn-editar" (click)="editarProduto(p.id)">Editar Preço</button>
+            <button class="btn-excluir" (click)="abrirExcluir(p)">Excluir</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p *ngIf="produtos.length === 0" class="sem-produtos">Nenhum produto cadastrado.</p>
+</div>
+
+<app-admin-produto-excluir
+  *ngIf="produtoParaExcluir"
+  [produto]="produtoParaExcluir"
+  (confirmar)="onConfirmarExclusao()"
+  (cancelar)="onCancelarExclusao()">
+</app-admin-produto-excluir>

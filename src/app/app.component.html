@@ -19,6 +19,20 @@
       </button>
     </div>
 
+    <a routerLink="/admin" class="admin-link">Admin</a>
+
+    @if (clienteLogado) {
+      <div class="auth-user">
+        <span class="user-nome">Olá, {{ clienteLogado.nome.split(' ')[0] }}</span>
+        <button class="btn-sair" (click)="auth.logout()">Sair</button>
+      </div>
+    } @else {
+      <div class="auth-links">
+        <a routerLink="/login" class="auth-link">Login</a>
+        <a routerLink="/cadastro" class="auth-link auth-link-destaque">Cadastrar</a>
+      </div>
+    }
+
     <a routerLink="/carrinho" class="cart-btn" aria-label="Carrinho">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
