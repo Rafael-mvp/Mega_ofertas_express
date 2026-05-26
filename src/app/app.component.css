@@ -16,19 +16,16 @@
 }
 
 .logo {
-  font-size: 1.4rem;
-  font-weight: 800;
-  white-space: nowrap;
   flex-shrink: 0;
-  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
 }
 
-.logo-mega {
-  color: #ffffff;
-}
-
-.logo-ofertas {
-  color: var(--orange);
+.logo-img {
+  height: 40px;
+  width: auto;
+  display: block;
+  object-fit: contain;
 }
 
 .search-bar {
