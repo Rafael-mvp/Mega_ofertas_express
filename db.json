@@ -50,7 +50,7 @@
       "desconto": 0,
       "destaque": false,
       "emPromocao": false,
-      "imagem": "assets/img/samsung-galaxy-a55-5g-256gb.png"
+      "imagem": "assets/img/samsung-galaxy-a55-5g-256gb.jpg"
     },
     {
       "id": 5,
@@ -297,7 +297,7 @@
       "desconto": 28,
       "destaque": true,
       "emPromocao": true,
-      "imagem": "assets/img/smart-tv-samsung-50-qled-4k-q60c.png"
+      "imagem": "assets/img/smart-tv-samsung-50-qled-4k-q60c.jpg"
     },
     {
       "id": 24,
@@ -561,7 +561,7 @@
     },
     {
       "id": 44,
-      "nome": "Mochila Notebook Targus CityLite 15.6\"",
+      "nome": "Mochila Notebook Targus CityLite 15.6",
       "categoria": "Acessórios",
       "precoOriginal": 269.9,
       "precoPromocional": 269.9,
